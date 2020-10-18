@@ -1,0 +1,44 @@
+name: Colourise badges
+author: Alexander John Pinches
+description: Make your badges into a nice rainbow
+
+inputs:
+        GH_TOKEN:
+                description: 'GitHub access token with Repo scope'
+                required: true
+                default: ${{ github.token }}
+        BRANCH:
+                description: 'Branch to commit to'
+                required: false
+                default: 'master'
+
+
+        AUTHOR:
+                description: 'Author name'
+                required: false
+                default: 'wordcloud bot'
+        IGNORE_FILE_TYPES:
+                description: 'File types to ignore'
+                required: false
+                default: '.pdf,.o'
+        IGNORE_REPOS:
+                description: 'Repos to ignore'
+                required: false
+                default: ''
+        CMAP:
+                description: 'Colourmap to use'
+                required: false
+                default: 'hsv'
+        WIDTH:
+                description: 'Width of photo'
+                required: false
+                default: '100%'
+
+
+runs:
+        using: 'docker'
+        image: 'Dockerfile'
+branding:
+        icon: 'activity'
+        color: 'orange'
+
