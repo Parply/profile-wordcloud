@@ -3,4 +3,5 @@ python-dotenv==0.14.0
 pygithub==1.53
 requests==2.23.0
 opencv==3.4.2
+matplotlib==3.3.1
 
