@@ -20,7 +20,7 @@ inputs:
         IGNORE_FILE_TYPES:
                 description: 'File types to ignore'
                 required: false
-                default: '.pdf,.o'
+                default: '.pdf,.o,.csv'
         IGNORE_REPOS:
                 description: 'Repos to ignore'
                 required: false
