@@ -13,6 +13,9 @@ ghtoken = os.getenv('INPUT_GH_TOKEN')
 ifiles = re.sub("\.","\.",re.sub(",","|",os.getenv('INPUT_IGNORE_FILE_TYPES')))
 irepos = re.sub(",","|",os.getenv('INPUT_IGNORE_REPOS'))
 WIDTH = os.getenv('INPUT_WIDTH')
+icmap = os.getenv('INPUT_CMAP')
+author = os.getenv('INPUT_AUTHOR')
+branch = os.getenv('INPUT_BRANCH')
 
 START_COMMENT = '<!--START_SECTION:wordcloud-->'
 END_COMMENT = '<!--END_SECTION:wordcloud-->'
@@ -91,37 +94,42 @@ if __name__=="__main__":
         gg =get_files(g)
         gg.get_files()
         text = gg.contents()
-        wordcloud = WordCloud(background_color=None,mode="RGBA").generate(text)
-        plt.figure(figsize=(10,5))
-        plt.imshow(wordcloud,interpolation="bilinear")
-        plt.axis("off")
-        plt.savefig("wordcloud.png")
+        wordcloud = WordCloud(colormap=icmap,collocations=False,background_color=None,mode="RGBA",width=1000,height=400).generate(text)
+        #plt.figure(figsize=(10,4))
+        #plt.imshow(wordcloud,interpolation="bilinear")
+        #plt.axis("off")
+        #plt.savefig("wordcloud.png")
+        headers = {"Authorization": "Bearer " + ghtoken}
         user_data = run_query(userInfoQuery) 
+        
         username = user_data["data"]["viewer"]["login"]
         id = user_data["data"]["viewer"]["id"]
         print(username)
-        star_me(username)
+       
+       
         repo = g.get_repo(f"{username}/{username}")
-    
-        committer = InputGitAuthor('wordcloud bot', 'wordcloud-bot@example.com')
+        star_me(username)
+        l="""
+        committer = InputGitAuthor(author f"{author}@example.com")
         with open('wordcloud.png', 'rb') as input_file:
             data = input_file.read()
         try:
             contents = repo.get_contents("wordcloud/wordcloud.png")    
-            repo.update_file(contents.path, "WordCloud Updated", data, contents.sha, committer=committer)
+            repo.update_file(contents.path, "WordCloud Updated", data, contents.sha, committer=committer,branch=branch)
         except Exception as e:
             repo.create_file("wordcloud/wordcloud.png", "WordCloud Added", data, committer=committer)
-
-
+        """
+        
         contents = repo.get_readme(ref=branch)
         rdmd =decode_readme(contents.content)
         new_readme = generate_new_readme(rdmd, username)
+        r="""
         if new_readme != rdmd:
             repo.update_file(path=contents.path, message="Added Wordcloud",
                              content=new_readme, sha=contents.sha, branch=branch,
                              committer=committer)
             print("Readme updated")
-    
+    """
     except Exception as e:
         traceback.print_exc()
         print("Exception Occurred " + str(e))
