@@ -1,7 +1,7 @@
 # Profile Wordcloud ☁️
 
 <p align="center">
-<a href="https://github.com/Parply/Parply"><img src="https://github.com/Parply/readme-badge-colouriser/blob/master/.github/wordcloud.png?raw=true" alt="Example" width="100%"/></a>
+<a href="https://github.com/Parply/Parply"><img src="https://github.com/Parply/profile-wordcloud/blob/master/.github/wordcloud.png?raw=true" alt="Example" width="100%"/></a>
 </p>
 
 ---
@@ -15,9 +15,9 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/Parply/readme-badge-colouriser/issues">Report Bug</a>
+    <a href="https://github.com/Parply/profile-wordcloud/issues">Report Bug</a>
     ·
-    <a href="https://github.com/Parply/readme-badge-colouriser/issues">Request Feature</a>
+    <a href="https://github.com/Parply/profile-wordcloud/issues">Request Feature</a>
   </p>
 
 ## Prep Work
