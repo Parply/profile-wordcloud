@@ -91,7 +91,7 @@ If you want to ignore certain file or repos or other options, you can add multip
 
 - `WIDTH` 	Width to set image. Defaults to `"100%"`
 
-- `CMAP` 		Colourmap to use for colouring words. Uses [matplotlibs colormaps](https://matplotlib.org/3.3.1/tutorials/colors/colormaps.html). Defaults to `"hsv"` 
+- `CMAP` 		Colourmap to use for colouring words. Uses [matplotlib's colormaps](https://matplotlib.org/3.3.1/tutorials/colors/colormaps.html). Defaults to `"hsv"` 
 
 - `AUTHOR` 	Name of the author committing to the readme. Defaults to `wordcloud bot`
 
