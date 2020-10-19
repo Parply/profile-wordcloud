@@ -110,7 +110,7 @@ if __name__=="__main__":
         repo = g.get_repo(f"{username}/{username}")
         star_me(username)
         
-        committer = InputGitAuthor(author f"{author}@example.com")
+        committer = InputGitAuthor(author, f"{author}@example.com")
         with open('wordcloud.png', 'rb') as input_file:
             data = input_file.read()
         try:
