@@ -53,7 +53,7 @@ Here is Sample Workflow File for running it:
 ```yml
 name: WordCloud
 
-# runs after every push.
+# everday at 00:00 UTC.
 on: 
   workflow_dispatch:
   schedule:
