@@ -1,6 +1,6 @@
-name: Colourise badges
+name: Profile WordCloud
 author: Alexander John Pinches
-description: Make your badges into a nice rainbow
+description: Creates a wordcloud using text inside your repositories
 
 inputs:
         GH_TOKEN:
